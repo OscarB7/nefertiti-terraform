@@ -6,7 +6,7 @@ apt-get update &>/opt/log_1_update_on_boot.log &&\
     apt-get -o "Dpkg::Options::=--force-confold" dist-upgrade -y &>/opt/log_2_upgrade_on_boot.log &&\
     touch /opt/log_3_updated_on_boot.log || touch /opt/log_3_failed_updat_on_boot.log
 cd /opt
-git clone https: https://github.com/OscarB7/nefertiti-terraform.git &>/opt/log_4_git_on_boot.log
+git clone https://github.com/OscarB7/nefertiti-terraform.git &>/opt/log_4_git_on_boot.log
 cd nefertiti-terraform/
 
 # create dot env file for setup_host.sh script and docker compose
