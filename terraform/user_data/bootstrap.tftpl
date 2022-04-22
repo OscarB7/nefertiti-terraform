@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# update and clone repo
+apt-get update &>/opt/log_1_update_on_boot.log &&\
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get -o "Dpkg::Options::=--force-confold" dist-upgrade -y &>/opt/log_2_upgrade_on_boot.log &&\
+    touch /opt/log_3_updated_on_boot.log || touch /opt/log_3_failed_updat_on_boot.log
+cd /opt
+git clone https: https://github.com/OscarB7/nefertiti-terraform.git &>/opt/log_4_git_on_boot.log
+cd nefertiti-terraform/
+
+# create dot env file for setup_host.sh script and docker compose
+cat << EOF > .env
+## ----- setup script -----
+DOCKER_COMPOSE_VERSION=${docker_compose_version}
+DOCKER_NETWORK_RANGE=${docker_network_range}
+
+## ----- docker compose -----
+NEFERTITI_VERSION=${nefertiti_version}
+EOF
+
+mkdir env
+
+cat << EOF > env/exchange.env
+api_key=${api_key}
+api_secret=${api_secret}
+api_passphrase=${api_passphrase}
+EOF
+
+cat << EOF > env/sell.env
+test=${test}
+command=sell
+
+debug=${debug}
+earn=${earn}
+exchange=${exchange}
+hold=${hold}
+ignore=USDT_USD
+mult=${mult}
+notify=${notify}
+quote=USDT
+sandbox=${sandbox}
+stoploss=${stoploss}
+EOF
+
+cat << EOF > env/buy.env
+test=${test}
+command=buy
+
+agg=${agg}
+dca=${dca}
+devn=${devn}
+dip=${dip}
+dist=${dist}
+exchange=${exchange}
+ignore=${ignore}
+market=${market}
+min=${min}
+pip=${pip}
+price=${price}
+quote=${quote}
+repeat=${repeat}
+signals=${signals}
+size=${size}
+strict=${strict}
+top=${top}
+valid=${valid}
+volume=${volume}
+EOF
+
+# set up instance
+bash setup_host.sh &>/opt/log_5_setup_on_boot.log && touch /opt/log_6_done_on_boot.log || touch /opt/log_6_failed_setup.log

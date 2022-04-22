@@ -40,7 +40,7 @@ docker-compose up -d
 ## cron jobs to update server and containers
 cat << EOF > /tmp/update_jobs
 0 3 * * 6    export DEBIAN_FRONTEND=noninteractive && sudo apt update &>/tmp/crontab.log && sudo apt -o Dpkg::Options::="--force-confold" upgrade -q -y && sudo apt -o Dpkg::Options::="--force-confold" dist-upgrade -q -y && sudo apt autoremove -q -y
-0 4 * * 6    sudo docker-compose pull pihole && sudo docker-compose up --force-recreate --build -d &>/tmp/crontab.log && sudo docker image prune -f
+0 4 * * 6    sudo docker-compose up --force-recreate --build -d &>/tmp/crontab.log && sudo docker image prune -f
 EOF
 
 crontab /tmp/update_jobs
