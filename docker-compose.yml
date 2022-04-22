@@ -1,0 +1,35 @@
+version: "3"
+services:
+
+  nefer-sell:
+    container_name: nefer-sell
+    build:
+      context: .
+      args:
+        NEFERTITI_VERSION: ${NEFERTITI_VERSION:-latest}
+    image: nefertiti:${NEFERTITI_VERSION:-latest}
+    restart: always
+    env_file:
+      - env/exchange.env
+      - env/sell.env
+    networks:
+      - backend
+
+  nefer-buy:
+    container_name: nefer-buy
+    build:
+      context: .
+      args:
+        NEFERTITI_VERSION: ${NEFERTITI_VERSION:-latest}
+    image: nefertiti:${NEFERTITI_VERSION:-latest}
+    depends_on:
+      - nefer-sell
+    restart: always
+    env_file:
+      - env/exchange.env
+      - env/buy.env
+    networks:
+      - backend
+
+networks:
+  backend:

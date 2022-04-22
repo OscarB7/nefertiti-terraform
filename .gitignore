@@ -1,0 +1,10 @@
+*.env
+
+*.lock.hcl
+.terraform
+*.tfstate*
+*.tfvars
+terraform.current*
+
+*.backup
+**/.DS_Store
