@@ -1,4 +1,5 @@
 *.env
+env
 
 *.lock.hcl
 .terraform
@@ -6,5 +7,6 @@
 *.tfvars
 terraform.current*
 
+.vscode
 *.backup
 **/.DS_Store

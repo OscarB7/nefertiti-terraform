@@ -174,7 +174,7 @@ variable "nefertiti_version" {
 
 variable "test" {
   type    = string
-  default = "false"
+  default = "true"
 }
 
 variable "api_key" {

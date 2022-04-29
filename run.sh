@@ -14,10 +14,10 @@ create_nefertiti_command() {
   nerfertiti_command="${nefertiti_home}/nefertiti \
     ${command:-about}"
   nerfertiti_command="${nerfertiti_command} \
-    $(if [[ "$test" == 'true' ]]; then echo '--test'; fi) \
-    $(if [[ "$dca" == 'true' ]]; then echo '--dca'; fi) \
-    $(if [[ "$debug" == 'true' ]]; then echo '--debug'; fi) \
-    $(if [[ "$strict" == 'true' ]]; then echo '--strict'; fi)"
+    $(if [[ ! "`echo $test | tr '[:upper:]' '[:lower:]'`" == "false" ]]; then echo '--test'; fi) \
+    $(if [[ "`echo $dca | tr '[:upper:]' '[:lower:]'`" == "true" ]]; then echo '--dca'; fi) \
+    $(if [[ "`echo $debug | tr '[:upper:]' '[:lower:]'`" == "true" ]]; then echo '--debug'; fi) \
+    $(if [[ "`echo $strict | tr '[:upper:]' '[:lower:]'`" == "true" ]]; then echo '--strict'; fi)"
   nerfertiti_command="${nerfertiti_command} \
     ${agg:+--agg=}${agg} \
     ${devn:+--devn=}${devn} \
