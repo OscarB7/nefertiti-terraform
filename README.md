@@ -60,7 +60,7 @@ Here we will create the `terraform/terraform.tfvars` file and explain how to obt
 2. Clone this project to your machine.
 
     ```shell
-    git clone https://github.com/OscarB7/pihole-terraform.git
+    git clone https://github.com/OscarB7/nefertiti-terraform.git
     ```
 
 3. Create SSH keys.
@@ -91,13 +91,13 @@ Here we will create the `terraform/terraform.tfvars` file and explain how to obt
 4. Create the `terraform/terraform.tfvars` file.
 
     ```shell
-    # from terraform-oci-base-resources
-    oci_region                   = "<'region' from terraform-oci-base-resources>"
-    oci_user_ocid                = "<'user' from terraform-oci-base-resources>"
-    oci_tenancy_ocid             = "<'tenancy' from terraform-oci-base-resources>"
-    oci_fingerprint              = "<'fingerprint' from terraform-oci-base-resources>"
-    oci_private_key_base64       = "<base64 one-line string from terraform-oci-base-resources>"
-    your_home_public_ip          = "<public IP address of your home from terraform-oci-base-resources>"
+    # from step 1
+    oci_region                   = "<'region' from step 1>"
+    oci_user_ocid                = "<'user' from step 1>"
+    oci_tenancy_ocid             = "<'tenancy' from step 1>"
+    oci_fingerprint              = "<'fingerprint' from step 1>"
+    oci_private_key_base64       = "<base64 one-line string from step 1>"
+    your_home_public_ip          = "<public IP address of your home from step 1>"
 
     ssh_public_key               = "<the content of the file 'id_rsa.pub' created in step 4>"
     use_reserved_public_ip       = false
@@ -223,7 +223,7 @@ Here we will create the `terraform/terraform.tfvars` file and explain how to obt
     Example (**do not use these values**):
 
     ```shell
-    # from terraform-oci-base-resources
+    # from step 1
     oci_region             = "us-ashburn-1"
     oci_user_ocid          = "ocid1.user.oc1..aaa...wmpxt"
     oci_tenancy_ocid       = "ocid1.tenancy.oc1..aaa...dnkxd"
@@ -322,7 +322,7 @@ exit
 
 ## Roadmap
 
-See the [open issues](https://github.com/OscarB7/pihole-terraform/issues) for a complete list of proposed features (and known issues).
+See the [open issues](https://github.com/OscarB7/nefertiti-terraform/issues) for a complete list of proposed features (and known issues).
 
 
 ## Contributing
@@ -348,21 +348,21 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Oscar Blanco - [Twitter @OsBlancoB](https://twitter.com/OsBlancoB) - [LinkedIn][linkedin-url]
 
-Project Link: [https://github.com/OscarB7/pihole-terraform](https://github.com/OscarB7/pihole-terraform)
+Project Link: [https://github.com/OscarB7/nefertiti-terraform](https://github.com/OscarB7/nefertiti-terraform)
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/OscarB7/pihole-terraform.svg?style=for-the-badge
-[contributors-url]: https://github.com/OscarB7/pihole-terraform/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/OscarB7/pihole-terraform.svg?style=for-the-badge
-[forks-url]: https://github.com/OscarB7/pihole-terraform/network/members
-[stars-shield]: https://img.shields.io/github/stars/OscarB7/pihole-terraform.svg?style=for-the-badge
-[stars-url]: https://github.com/OscarB7/pihole-terraform/stargazers
-[issues-shield]: https://img.shields.io/github/issues/OscarB7/pihole-terraform.svg?style=for-the-badge
-[issues-url]: https://github.com/OscarB7/pihole-terraform/issues
-[license-shield]: https://img.shields.io/github/license/OscarB7/pihole-terraform.svg?style=for-the-badge
-[license-url]: https://github.com/OscarB7/pihole-terraform/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/OscarB7/nefertiti-terraform.svg?style=for-the-badge
+[contributors-url]: https://github.com/OscarB7/nefertiti-terraform/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/OscarB7/nefertiti-terraform.svg?style=for-the-badge
+[forks-url]: https://github.com/OscarB7/nefertiti-terraform/network/members
+[stars-shield]: https://img.shields.io/github/stars/OscarB7/nefertiti-terraform.svg?style=for-the-badge
+[stars-url]: https://github.com/OscarB7/nefertiti-terraform/stargazers
+[issues-shield]: https://img.shields.io/github/issues/OscarB7/nefertiti-terraform.svg?style=for-the-badge
+[issues-url]: https://github.com/OscarB7/nefertiti-terraform/issues
+[license-shield]: https://img.shields.io/github/license/OscarB7/nefertiti-terraform.svg?style=for-the-badge
+[license-url]: https://github.com/OscarB7/nefertiti-terraform/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/oscar-blanco-b75842132
