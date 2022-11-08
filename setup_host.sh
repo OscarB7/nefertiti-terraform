@@ -27,10 +27,17 @@ apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io
 host_details="$(uname -s)-$(uname -m)"
 if [[ -z $DOCKER_COMPOSE_VERSION ]]; then
-    docker_compose_version=`curl https://github.com/docker/compose/releases/latest 2>/dev/null | grep -o "v[0-9]*\.[0-9]\.[0-9]"`
+    docker_compose_version=`curl https://github.com/docker/compose/releases/latest 2>/dev/null | grep -o "v[0-9]*\.[0-9]*\.[0-9]*"`
+    if [[ -z $docker_compose_version ]]; then
+        docker_compose_version=`curl https://github.com/docker/compose/releases/latest -v |& grep 'location: https' | grep -o "v[0-9]*\.[0-9]*\.[0-9]*"`
+    fi
+    if [[ -z $docker_compose_version ]]; then
+        docker_compose_version='v2.12.2'
+    fi
 else
     docker_compose_version="v$DOCKER_COMPOSE_VERSION"
 fi
+
 curl -L "https://github.com/docker/compose/releases/download/${docker_compose_version}/docker-compose-${host_details,,}" -o /usr/local/bin/docker-compose
 chmod -v +x /usr/local/bin/docker-compose
 
