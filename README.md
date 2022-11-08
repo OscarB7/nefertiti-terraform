@@ -115,7 +115,7 @@ Here we will create the `terraform/terraform.tfvars` file and explain how to obt
     price             = "5"
     dca               = "true"
     debug             = "true"
-    ignore            = "USDT_USD"
+    ignore            = "USDT_USD,UST_USDT,USDT_USDC"
     market            = "all"
     quote             = "USDT"
     repeat            = "1"
@@ -195,7 +195,7 @@ Here we will create the `terraform/terraform.tfvars` file and explain how to obt
     - **price**: [*REQUIRED*]  
     - **dca**: [*Default:* `true`]  
     - **debug**: [*Default:* `true`]  
-    - **ignore**: [*Default:* `USDT_USD`]  
+    - **ignore**: [*Default:* `USDT_USD,UST_USDT,USDT_USDC`]  
     - **market**: [*Default:* `all`]  
     - **quote**: [*Default:* `USDT`]  
     - **repeat**: [*Default:* `1`]  

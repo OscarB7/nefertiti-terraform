@@ -263,7 +263,7 @@ variable "dist" {
 
 variable "ignore" {
   type    = string
-  default = "USDT_USD"
+  default = "USDT_USD,UST_USDT,USDT_USDC"
 }
 
 variable "market" {
